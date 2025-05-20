@@ -4,6 +4,10 @@ This is my config for Wezterm, a cross platform terminal, which includes a lot o
 
 The main purpose of the repository is so that I can simply clone my config anywhere and get to work as needed, but feel free to look around!
 
+## Requirements
+
+1. You are going to need Monocraft, more specifically the Nerd Font. You can just Google and find it.
+
 ## Instructions
 
 - ### MacOS
