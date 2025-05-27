@@ -87,6 +87,10 @@ local config = {
 	},
 }
 
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+	config.default_prog = { "pwsh.exe", "-NoLogo" }
+end
+
 -- Fullscreen mode on launch.
 wezterm.on("gui-startup", function()
 	local _, _, window = mux.spawn_window({})
