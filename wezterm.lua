@@ -93,6 +93,16 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.default_prog = { "powershell" }
 end
 
+wezterm.on("update-status", function(window, pane)
+	local overrides = window:get_config_overrides() or {}
+	if window:is_focused() then
+		overrides.macos_window_background_blur = 20
+	else
+		overrides.macos_window_background_blur = 100
+	end
+	window:set_config_overrides(overrides)
+end)
+
 -- Fullscreen mode on launch.
 wezterm.on("gui-startup", function()
 	local _, _, window = mux.spawn_window({})
