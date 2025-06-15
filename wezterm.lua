@@ -2,6 +2,8 @@ local wezterm = require("wezterm") --[[@as Wezterm]]
 local mux = wezterm.mux
 local gui = wezterm.gui
 
+local BG_BLUR = 5
+
 local config = {
 	font = wezterm.font("Monocraft Nerd Font", {
 		weight = "Book",
@@ -45,8 +47,8 @@ local config = {
 	use_fancy_tab_bar = false,
 	window_decorations = "RESIZE",
 	hide_tab_bar_if_only_one_tab = true,
-	window_background_opacity = 0.8,
-	macos_window_background_blur = 20,
+	window_background_opacity = 0.7,
+	macos_window_background_blur = BG_BLUR,
 
 	front_end = "WebGpu",
 	max_fps = 240,
@@ -96,7 +98,7 @@ end
 wezterm.on("update-status", function(window, pane)
 	local overrides = window:get_config_overrides() or {}
 	if window:is_focused() then
-		overrides.macos_window_background_blur = 20
+		overrides.macos_window_background_blur = BG_BLUR
 	else
 		overrides.macos_window_background_blur = 100
 	end
